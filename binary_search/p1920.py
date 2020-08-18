@@ -1,3 +1,7 @@
+import sys
+read = sys.stdin.readline
+
+
 def b_search(arr, target, left, right):
     if left > right:
         return 0
@@ -10,22 +14,15 @@ def b_search(arr, target, left, right):
         return b_search(arr, target, middle + 1, right)
 
 
-result = []
-N = int(input())
+N = int(read())
+A = list(map(int, read().split()))
+A.sort()
 
-A = input()
-A = A.split(' ')
-A = list(map(int, A))
+M = int(read())
+B = list(map(int, read().split()))
 
-M = int(input())
-
-B = input()
-B = B.split(' ')
-A = list(map(int, A))
-B = list(map(int, B))
 left = 0
 right = len(A) - 1
-A.sort()
 
 for B_ in B:
     out = b_search(A, B_, left, right)
